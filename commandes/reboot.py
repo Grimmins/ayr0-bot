@@ -21,7 +21,6 @@ class generales(commands.Cog):
             await asyncio.sleep((random.randint(2, 12)/10))
             await ctx.send("Redémarrage terminé !")
             self.restart_bot()
-
         else:
             await ctx.send("Vous n'avez pas la permission !")
         
