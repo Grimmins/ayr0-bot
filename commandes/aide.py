@@ -16,6 +16,8 @@ class generales(commands.Cog):
 **COMMANDES GENERAL : **
 {prefix}aide ==> affiche l'aide
 **COMMANDES ADMIN : **
+
+**COMMANDES OWNER : **
 {prefix}stop ==> arrete le bot
         """
         embedVar = discord.Embed(title="AIDE : ", description=help, color=0x00ff00)
