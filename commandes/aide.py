@@ -18,7 +18,7 @@ class generales(commands.Cog):
 **COMMANDES ADMIN : **
 
 **COMMANDES OWNER : **
-{prefix}stop ==> arrete le bot
+{prefix}reboot ==> reboot le bot
         """
         embedVar = discord.Embed(title="AIDE : ", description=help, color=0x00ff00)
         await ctx.send(embed=embedVar)
