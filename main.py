@@ -1,20 +1,15 @@
-import os
-import discord
+from discord.ext.commands import has_permissions, CheckFailure
+from discord.ext import commands,tasks
 from dotenv import load_dotenv
-from discord.ext import commands
-intents = discord.Intents.default()
-intents.members = True
-load_dotenv(dotenv_path="config")
+import discord
+import os
+load_dotenv(dotenv_path=".env")
 
+intents = discord.Intents().all()
+client = commands.Bot(command_prefix=os.getenv("prefix"), intents=intents)
+client.remove_command('help')
 
-class Ayrobot(commands.Bot):
-    def __init__(self):
-        super().__init__(command_prefix=(os.getenv("prefix")), description=f"{os.getenv('prefix')}haylp pour de l'aide")
-
-    async def on_ready(self):
-        print(f"{self.user.display_name} is connected !")
-
-#Création de l'instance aybot
-aybot = Ayrobot()
-aybot.run(os.getenv("token"))
-
+for fichier in os.listdir("./commandes"):
+    if fichier.endswith(".py"):
+        client.load_extension(f"commandes.{fichier[:-3]}")
+client.run(os.getenv("token"))
