@@ -1,5 +1,8 @@
 from discord.ext import commands
+from dotenv import load_dotenv
 import discord
+import os
+load_dotenv(dotenv_path=".env")
 
 class generales(commands.Cog):
     
@@ -8,7 +11,15 @@ class generales(commands.Cog):
 
     @commands.command()
     async def aide(self, ctx):
-        print("t")
+        prefix = os.getenv("prefix")
+        help = f"""
+**COMMANDES GENERAL : **
+{prefix}aide ==> affiche l'aide
+**COMMANDES ADMIN : **
+{prefix}stop ==> arrete le bot
+        """
+        embedVar = discord.Embed(title="AIDE : ", description=help, color=0x00ff00)
+        await ctx.send(embed=embedVar)
         
 def setup(client):
     client.add_cog(generales(client))
