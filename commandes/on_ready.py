@@ -2,7 +2,7 @@ from discord.ext import commands
 import discord
 import sys
 
-class generales(commands.Cog):
+class Generales(commands.Cog):
     
     def __init__(self, client):
         self.client = client
@@ -13,4 +13,4 @@ class generales(commands.Cog):
         await self.client.change_presence(status=discord.Status.online, activity=activity)
         
 def setup(client):
-    client.add_cog(generales(client))
+    client.add_cog(Generales(client))
