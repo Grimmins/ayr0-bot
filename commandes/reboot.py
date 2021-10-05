@@ -6,7 +6,7 @@ import os
 import asyncio
 import random
 
-class generales(commands.Cog):
+class Generales(commands.Cog):
     
     def __init__(self, client):
         self.client = client
@@ -25,4 +25,4 @@ class generales(commands.Cog):
             await ctx.send("Vous n'avez pas la permission !")
         
 def setup(client):
-    client.add_cog(generales(client))
+    client.add_cog(Generales(client))
